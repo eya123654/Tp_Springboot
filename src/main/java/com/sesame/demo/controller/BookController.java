@@ -64,4 +64,9 @@ public class BookController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @GetMapping("/books/count")
+    public long countBooks() {
+        return bookService.count();
+    }
 }

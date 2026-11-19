@@ -18,4 +18,6 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     List<Book> searchBooks(@Param("title") String title,
             @Param("author") String author,
             @Param("category") String category);
+
+    List<Book> findByAuthorContainingIgnoreCase(String author);
 }

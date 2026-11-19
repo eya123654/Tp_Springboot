@@ -62,6 +62,10 @@ public class BookService {
         bookRepository.deleteById(id);
     }
 
+    public long count() {
+        return bookRepository.count();
+    }
+
     private String normalize(String value) {
         if (value == null) {
             return "";
