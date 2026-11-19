@@ -38,7 +38,7 @@ class BookApiIntegrationTest {
         mockMvc.perform(get("/api/books"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$", hasSize(2)));
+                .andExpect(jsonPath("$", hasSize(5)));
     }
 
     @Test
@@ -48,7 +48,7 @@ class BookApiIntegrationTest {
         Book book = new Book();
         book.setTitle("Le Petit Prince");
         book.setAuthor("Antoine de Saint-Exupéry");
-        book.setIsbn("978-2-07-040850-1");
+        book.setIsbn("978-2-07-040851-8");
         book.setAvailable(true);
 
         mockMvc.perform(post("/api/books")
