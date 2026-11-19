@@ -40,6 +40,7 @@ public class BookService {
         if (book == null) {
             throw new IllegalArgumentException("Le livre ne peut pas être nul.");
         }
+        book.setId(null);
         return bookRepository.save(book);
     }
 
