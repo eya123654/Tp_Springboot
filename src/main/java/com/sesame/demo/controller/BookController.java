@@ -49,9 +49,6 @@ public class BookController {
     @PostMapping("/books")
     @Operation(summary = "Créer un livre")
     public ResponseEntity<Book> createBook(@Valid @RequestBody Book book) {
-        if (book.getTitle() == null || book.getTitle().isBlank()) {
-            return ResponseEntity.badRequest().build();
-        }
         Book created = bookService.create(book);
         URI location = URI.create("/api/books/" + created.getId());
         return ResponseEntity.created(location).body(created);
