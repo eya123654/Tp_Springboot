@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -17,10 +18,12 @@ public class Book {
     private Long id;
 
     @NotBlank(message = "Le titre est obligatoire")
-    @Column(nullable = false)
+    @Size(max = 200, message = "Le titre ne doit pas dépasser 200 caractères")
+    @Column(nullable = false, length = 200)
     private String title;
 
     @NotBlank(message = "L'auteur est obligatoire")
+    @Size(max = 255, message = "L'auteur ne doit pas dépasser 255 caractères")
     @Column(nullable = false)
     private String author;
 
@@ -35,6 +38,7 @@ public class Book {
     private Set<Category> categories = new HashSet<>();
 
     @NotBlank(message = "L'ISBN est obligatoire")
+    @Size(max = 255, message = "L'ISBN ne doit pas dépasser 255 caractères")
     @Column(nullable = false, unique = true)
     private String isbn;
 

@@ -8,6 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan(basePackages = {
         "com.sesame.demo.controller",
         "com.sesame.demo.data",
+        "com.sesame.demo.exception",
         "com.sesame.demo.repository",
         "com.sesame.demo.security",
         "com.sesame.demo.service"
